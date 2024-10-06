@@ -1,0 +1,2 @@
+#!/bin/sh
+find ./incoming-videos -name '*.mov' -exec convert-video {} \;

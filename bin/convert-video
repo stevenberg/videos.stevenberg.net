@@ -1,0 +1,7 @@
+#!/bin/sh
+src=$(realpath "$1")
+dst=$(printf '%s' "$src" | sed 's/incoming-//' | sed 's/\.mov/\.mp4/')
+dir=$(dirname "$dst")
+if [ -f "$dst" ]; then exit; fi
+mkdir -p "$dir"
+handbrake --preset 'Creator 2160p60 4K' --input "$src" --output "$dst"

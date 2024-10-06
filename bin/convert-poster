@@ -1,0 +1,7 @@
+#!/bin/sh
+src=$(realpath "$1")
+dst=$(printf '%s' "$src" | sed 's/incoming-//' | sed 's/\.tiff/\.jpeg/')
+dir=$(dirname "$dst")
+if [ -f "$dst" ]; then exit; fi
+mkdir -p "$dir"
+sips -s format jpeg "$src" --out "$dst"

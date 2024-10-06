@@ -1,0 +1,8 @@
+#!/bin/sh
+s3cmd \
+    --config=./.s3cfg \
+    --delete-removed \
+    --acl-public \
+    --exclude=.gitignore \
+    --exclude=.DS_Store \
+    sync videos/ "s3://$S3_VIDEOS_BUCKET/"
